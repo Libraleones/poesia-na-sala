@@ -227,6 +227,13 @@ section {
   margin-bottom: 1rem;
 }
 
+.sala-video {
+  width: 100%;
+  border-radius: 8px;
+  border: 0.5px solid var(--border);
+  display: block;
+}
+
 .sala-video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
