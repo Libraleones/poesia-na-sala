@@ -202,12 +202,25 @@ section {
 
 /* ── A SALA ──────────────────────────────────────────────── */
 
-.sala-intro {
-  font-size: clamp(15px, 2vw, 17px);
+.sala-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+}
+
+.sala-texto p {
+  font-size: clamp(14px, 2vw, 16px);
   color: var(--mid);
-  line-height: 1.8;
-  max-width: 560px;
-  margin-bottom: 2.5rem;
+  line-height: 1.85;
+}
+
+.sala-texto p:first-child {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--light);
 }
 
 .sala-video-wrap {
