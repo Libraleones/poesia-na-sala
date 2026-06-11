@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contato — Poesia na Sala" />
+  <title>Contato · Poesia na Sala</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Poesia <span>na Sala</span></a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="equipe.html" class="nav-link">Equipe</a>
+        <a href="contato.html" class="nav-link active">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="contato-page" style="padding-top: 120px;">
+    <div class="section-label">fale com a gente</div>
+
+    <div class="contato-block">
+      <h2 class="cta-titulo">Pronto para fazer parte da sala?</h2>
+      <p class="cta-sub">Preencha o formulário abaixo e nossa equipe entrará em contato em breve.</p>
+    </div>
+
+    <form class="contato-form" action="mailto:poesianasala@gmail.com" method="GET">
+      <div class="form-group">
+        <label for="nome">Nome artístico</label>
+        <input type="text" id="nome" name="nome" placeholder="Como você se apresenta?" required />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="mensagem">Conta um pouco sobre você</label>
+        <textarea id="mensagem" name="body" rows="5" placeholder="Seu estilo, sua arte, o que você quer registrar..."></textarea>
+      </div>
+      <button type="submit" class="hero-cta" style="border-radius: 100px; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;">Enviar mensagem</button>
+    </form>
+  </section>
+
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">Poesia <span>na Sala</span></span>
+      <span class="footer-copy">© 2026 · cultura de rua em cena</span>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
