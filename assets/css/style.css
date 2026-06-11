@@ -175,10 +175,11 @@ section {
 }
 
 .oferta-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
-  padding-top: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  margin-top: 6px;
   grid-row: 1;
 }
 
@@ -220,9 +221,12 @@ section {
 }
 
 .membro-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--muted);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  margin-top: 8px;
+  flex-shrink: 0;
 }
 
 .membro-nome {
