@@ -153,13 +153,7 @@ section {
 
 @media (max-width: 768px) {
   .poesia-flutuante {
-    z-index: 0;
-  }
-
-  .poesia-flutuante span {
-    white-space: normal;
-    font-size: clamp(10px, 2.8vw, 13px);
-    max-width: 42vw;
+    display: none;
   }
 }
 
