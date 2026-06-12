@@ -143,6 +143,7 @@ section {
 
 .poesia-flutuante:hover {
   z-index: 20;
+  animation-play-state: paused;
 }
 
 .poesia-flutuante:hover span {
