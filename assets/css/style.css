@@ -153,6 +153,11 @@ section {
   animation-direction: alternate-reverse;
 }
 
+.pf-lento {
+  animation-duration: 9s;
+  animation-delay: -3s;
+}
+
 @keyframes flutuar {
   0%   { transform: translateY(0px);   }
   50%  { transform: translateY(-12px); }
