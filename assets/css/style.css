@@ -388,59 +388,101 @@ body {
 
 /* ── EQUIPE ──────────────────────────────────────────────── */
 
-.equipe-list {
+#equipe {
+  max-width: 900px;
+}
+
+.equipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 2rem;
+}
+
+.membro-card {
+  background: #111;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.membro-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.membro-foto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.membro-foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.membro-body {
+  padding: 1rem 1.1rem 1.2rem;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
-.membro {
-  display: grid;
-  grid-template-columns: 40px 1fr auto;
+.membro-header {
+  display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 1.25rem 0;
-  border-bottom: 0.5px solid var(--border);
-}
-
-.membro:first-child {
-  border-top: 0.5px solid var(--border);
-}
-
-.membro-num {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border);
-  margin-top: 8px;
-  flex-shrink: 0;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
 }
 
 .membro-nome {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--light);
-  margin-bottom: 2px;
 }
 
 .membro-cargo {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
+  line-height: 1.5;
 }
 
 .membro-frase {
-  font-size: 12px;
-  color: #555;
+  font-size: 11px;
+  color: #444;
+  font-style: italic;
   margin-top: 2px;
 }
 
 .membro-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge-arte { background: #2a2218; color: #c9a96e; border: 0.5px solid #3a3228; }
@@ -449,7 +491,6 @@ body {
 .badge-voz  { background: #1a1a1a; color: #888;    border: 0.5px solid #333; }
 
 .equipe-manifesto {
-  margin-top: 2rem;
   padding: 1.5rem;
   background: #111;
   border-radius: 8px;
@@ -465,6 +506,17 @@ body {
 .equipe-manifesto strong {
   color: var(--gold);
   font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .equipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #equipe {
+    max-width: 100%;
+  }
 }
 
 /* ── CONTATO / CTA ───────────────────────────────────────── */
