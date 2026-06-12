@@ -125,10 +125,9 @@ section {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  animation: flutuar 6s ease-in-out infinite;
+  animation: flutuar 22s linear infinite;
   cursor: default;
   user-select: none;
-  transition: z-index 0s;
 }
 
 .poesia-flutuante span {
@@ -136,7 +135,7 @@ section {
   font-family: 'IM Fell English', serif;
   font-style: italic;
   font-size: clamp(13px, 1.4vw, 17px);
-  color: rgba(201, 169, 110, 0.22);
+  color: rgba(201, 169, 110, 0.28);
   line-height: 1.6;
   transition: color 0.4s ease, text-shadow 0.4s ease;
   white-space: nowrap;
@@ -157,24 +156,16 @@ section {
   }
 }
 
-.poesia-flutuante:nth-child(odd) {
-  animation-duration: 7s;
-}
-
-.poesia-flutuante:nth-child(even) {
-  animation-duration: 5.5s;
-  animation-direction: alternate-reverse;
-}
-
 .pf-lento {
-  animation-duration: 9s;
-  animation-delay: -3s;
+  animation-duration: 30s;
+  animation-delay: -12s;
 }
 
 @keyframes flutuar {
-  0%   { transform: translateY(0px);   }
-  50%  { transform: translateY(-12px); }
-  100% { transform: translateY(0px);   }
+  0%   { transform: translateY(50vh);  opacity: 0; }
+  8%   { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateY(-90vh); opacity: 0; }
 }
 
 body {
