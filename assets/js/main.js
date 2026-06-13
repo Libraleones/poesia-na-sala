@@ -28,6 +28,14 @@ if (toggle && nav) {
         <p class="modal-cargo"></p>
         <p class="modal-frase"></p>
         <p class="modal-bio"></p>
+        <a class="modal-instagram" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="modal-instagram-handle"></span>
+        </a>
       </div>
     </div>
   `;
@@ -46,6 +54,16 @@ if (toggle && nav) {
       overlay.querySelector('.modal-cargo').textContent = card.dataset.cargo;
       overlay.querySelector('.modal-frase').textContent = card.dataset.frase;
       overlay.querySelector('.modal-bio').textContent   = card.dataset.bio;
+
+      const igLink = overlay.querySelector('.modal-instagram');
+      const igHandle = overlay.querySelector('.modal-instagram-handle');
+      if (card.dataset.instagram) {
+        igLink.href = card.dataset.instagram;
+        igHandle.textContent = '@' + card.dataset.instagram.split('/').pop();
+        igLink.style.display = 'flex';
+      } else {
+        igLink.style.display = 'none';
+      }
 
       const badge = overlay.querySelector('.modal-badge');
       badge.className = 'modal-badge ' + card.dataset.badge;

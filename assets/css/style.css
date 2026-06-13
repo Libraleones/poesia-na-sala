@@ -623,6 +623,24 @@ body {
   border-top: 0.5px solid var(--border);
 }
 
+.modal-instagram {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  width: fit-content;
+  transition: color 0.2s;
+}
+
+.modal-instagram:hover {
+  color: var(--gold);
+}
+
 .modal-close {
   position: absolute;
   top: 14px;
