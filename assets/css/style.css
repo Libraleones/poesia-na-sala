@@ -519,6 +519,151 @@ body {
   }
 }
 
+/* ── AGENDA / CALENDÁRIO ─────────────────────────────────── */
+
+#agenda {
+  max-width: 680px;
+}
+
+.agenda-intro p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.calendario {
+  background: #111;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.cal-titulo {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cal-nav {
+  background: none;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-nav:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.cal-dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0.75rem 1rem 0.25rem;
+}
+
+.cal-dias-semana span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #444;
+  text-align: center;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 0.5rem 1rem 1.25rem;
+}
+
+.cal-dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: default;
+  transition: background 0.2s, color 0.2s;
+  color: #555;
+}
+
+.cal-dia.disponivel {
+  color: var(--light);
+  cursor: pointer;
+}
+
+.cal-dia.disponivel:hover {
+  background: rgba(201, 169, 110, 0.15);
+  color: var(--gold);
+}
+
+.cal-dia.hoje {
+  border: 0.5px solid var(--border);
+  color: var(--muted);
+}
+
+.cal-dia.passado {
+  color: #2a2a2a;
+  cursor: default;
+}
+
+.cal-dia.selecionado {
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.cal-dia.vazio {
+  pointer-events: none;
+}
+
+/* Modal de agendamento */
+.agenda-modal-inner {
+  grid-template-columns: 1fr !important;
+  max-width: 500px;
+}
+
+.agenda-modal-body {
+  padding: 2rem;
+}
+
+.agenda-modal-data {
+  font-family: var(--font-mono);
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.agenda-modal-sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* ── MODAL MEMBRO ────────────────────────────────────────── */
 
 .modal-overlay {

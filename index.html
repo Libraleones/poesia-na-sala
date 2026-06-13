@@ -21,6 +21,7 @@
         <a href="index.html" class="nav-link active">Home</a>
         <a href="#a-sala" class="nav-link">A Sala</a>
         <a href="equipe.html" class="nav-link">Equipe</a>
+        <a href="#agenda" class="nav-link">Agenda</a>
         <a href="contato.html" class="nav-link">Contato</a>
       </nav>
     </div>
@@ -200,6 +201,52 @@
       <p>Não somos uma produtora.<br>Somos um <strong>coletivo</strong> — cada um com uma função, todos com o mesmo propósito: <strong>fazer arte que dure</strong>.</p>
     </div>
   </section>
+
+  <!-- PRÓXIMOS EPISÓDIOS -->
+  <section id="agenda">
+    <div class="section-label">próximos episódios</div>
+    <div class="agenda-intro">
+      <p>Escolha uma data disponível e solicite sua gravação na Sala. Nossa equipe confirma em até 48h.</p>
+    </div>
+    <div class="calendario">
+      <div class="cal-header">
+        <button class="cal-nav" id="cal-prev" aria-label="Mês anterior">&#8592;</button>
+        <span class="cal-titulo" id="cal-titulo"></span>
+        <button class="cal-nav" id="cal-next" aria-label="Próximo mês">&#8594;</button>
+      </div>
+      <div class="cal-dias-semana">
+        <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+  </section>
+
+  <!-- MODAL AGENDAMENTO -->
+  <div id="agenda-modal" class="modal-overlay">
+    <div class="modal-inner agenda-modal-inner">
+      <button class="modal-close" aria-label="Fechar">×</button>
+      <div class="agenda-modal-body">
+        <div class="section-label" style="margin-bottom:1rem;">solicitar gravação</div>
+        <h2 class="agenda-modal-data" id="agenda-data-titulo"></h2>
+        <p class="agenda-modal-sub">Preencha os dados abaixo e entraremos em contato para confirmar.</p>
+        <form class="contato-form" id="agenda-form" style="margin-top:1.5rem;">
+          <div class="form-group">
+            <label for="ag-nome">Nome artístico</label>
+            <input type="text" id="ag-nome" name="nome" placeholder="Como você se apresenta?" required />
+          </div>
+          <div class="form-group">
+            <label for="ag-email">E-mail</label>
+            <input type="email" id="ag-email" name="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="ag-msg">Conta um pouco sobre você</label>
+            <textarea id="ag-msg" name="mensagem" rows="3" placeholder="Seu estilo, sua arte..."></textarea>
+          </div>
+          <button type="submit" class="hero-cta" style="border-radius:100px;cursor:pointer;font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Solicitar essa data</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTATO -->
   <section id="contato">

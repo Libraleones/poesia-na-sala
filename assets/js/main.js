@@ -11,6 +11,109 @@ if (toggle && nav) {
   });
 }
 
+// Calendário de agendamento
+(function () {
+  const grid    = document.getElementById('cal-grid');
+  const titulo  = document.getElementById('cal-titulo');
+  const btnPrev = document.getElementById('cal-prev');
+  const btnNext = document.getElementById('cal-next');
+  if (!grid) return;
+
+  const hoje = new Date();
+  let ano = hoje.getFullYear();
+  let mes = hoje.getMonth();
+
+  const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+                 'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+  function renderCalendario() {
+    grid.innerHTML = '';
+    titulo.textContent = meses[mes] + ' ' + ano;
+
+    const primeiroDia = new Date(ano, mes, 1).getDay();
+    const diasNoMes   = new Date(ano, mes + 1, 0).getDate();
+
+    for (let i = 0; i < primeiroDia; i++) {
+      const vazio = document.createElement('div');
+      vazio.className = 'cal-dia vazio';
+      grid.appendChild(vazio);
+    }
+
+    for (let d = 1; d <= diasNoMes; d++) {
+      const dia = document.createElement('div');
+      dia.className = 'cal-dia';
+      dia.textContent = d;
+
+      const data = new Date(ano, mes, d);
+      const ehHoje = data.toDateString() === hoje.toDateString();
+      const passado = data < new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+
+      if (passado) {
+        dia.classList.add('passado');
+      } else if (ehHoje) {
+        dia.classList.add('hoje', 'disponivel');
+      } else {
+        dia.classList.add('disponivel');
+      }
+
+      if (dia.classList.contains('disponivel')) {
+        dia.addEventListener('click', () => abrirAgenda(d, mes, ano));
+      }
+
+      grid.appendChild(dia);
+    }
+  }
+
+  btnPrev.addEventListener('click', () => {
+    mes--;
+    if (mes < 0) { mes = 11; ano--; }
+    renderCalendario();
+  });
+
+  btnNext.addEventListener('click', () => {
+    mes++;
+    if (mes > 11) { mes = 0; ano++; }
+    renderCalendario();
+  });
+
+  renderCalendario();
+
+  // Modal de agendamento
+  const agModal  = document.getElementById('agenda-modal');
+  const agTitulo = document.getElementById('agenda-data-titulo');
+  const agForm   = document.getElementById('agenda-form');
+
+  function abrirAgenda(dia, m, a) {
+    const nomes = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+                   'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    agTitulo.textContent = dia + ' de ' + nomes[m] + ' de ' + a;
+    agModal.classList.add('open');
+    document.getElementById('ag-nome').value = '';
+    document.getElementById('ag-email').value = '';
+    document.getElementById('ag-msg').value = '';
+  }
+
+  agModal.addEventListener('click', e => { if (e.target === agModal) agModal.classList.remove('open'); });
+  agModal.querySelector('.modal-close').addEventListener('click', () => agModal.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') agModal.classList.remove('open'); });
+
+  agForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const nome  = document.getElementById('ag-nome').value;
+    const email = document.getElementById('ag-email').value;
+    const msg   = document.getElementById('ag-msg').value;
+    const data  = agTitulo.textContent;
+    const assunto = encodeURIComponent('Solicitação de gravação — ' + data);
+    const corpo   = encodeURIComponent(
+      'Data solicitada: ' + data + '\n' +
+      'Nome: ' + nome + '\n' +
+      'E-mail: ' + email + '\n\n' + msg
+    );
+    window.location.href = 'mailto:poesianasala@gmail.com?subject=' + assunto + '&body=' + corpo;
+    agModal.classList.remove('open');
+  });
+})();
+
 // Modal de membro
 (function () {
   const overlay = document.createElement('div');
