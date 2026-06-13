@@ -47,6 +47,18 @@ if (toggle && nav) {
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
+  // Injeta fotos nos cards
+  document.querySelectorAll('.membro-card').forEach(card => {
+    if (card.dataset.foto) {
+      const fotoDiv = card.querySelector('.membro-foto');
+      const img = document.createElement('img');
+      img.src = card.dataset.foto;
+      img.alt = card.dataset.nome;
+      fotoDiv.appendChild(img);
+      fotoDiv.querySelector('.foto-label').style.display = 'none';
+    }
+  });
+
   document.querySelectorAll('.membro-card').forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
@@ -69,12 +81,13 @@ if (toggle && nav) {
       badge.className = 'modal-badge ' + card.dataset.badge;
       badge.textContent = card.dataset.label;
 
-      const cardImg = card.querySelector('.membro-foto img');
       const modalFoto = overlay.querySelector('.modal-foto');
       const existingImg = modalFoto.querySelector('img');
       if (existingImg) existingImg.remove();
-      if (cardImg) {
-        const img = cardImg.cloneNode();
+      if (card.dataset.foto) {
+        const img = document.createElement('img');
+        img.src = card.dataset.foto;
+        img.alt = card.dataset.nome;
         modalFoto.appendChild(img);
         modalFoto.querySelector('.foto-label').style.display = 'none';
       } else {
