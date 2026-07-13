@@ -1,4 +1,4 @@
-// main.js — Arte na Sala
+// main.js — Poesia na Sala
 
 const toggle = document.querySelector('.nav-toggle');
 const nav    = document.querySelector('#main-nav');
